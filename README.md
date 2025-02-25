@@ -1,11 +1,13 @@
 QuickDepth: The Predictive Genius for RTL Logic Depth!
 
-Welcome to QuickDepth 🚀
+Welcome to QuickDepth !
+
 Ever wondered if your combinational logic designs might cause timing issues before you hit the synthesizer? Say hello to QuickDepth – the smart tool that predicts the logic depth of your RTL designs. No more waiting for synthesis results or being caught off guard by timing violations. QuickDepth has got your back!
 
 I built this project from the ground up to save you time, hassle, and headaches in your design process. Using machine learning, QuickDepth predicts logic depth based on key design features – because being proactive is always better than being reactive.
 
 Why QuickDepth? 🤔
+
 Because every second counts when you're designing hardware. If your logic depth prediction is off, you could end up with timing violations that slow down the whole process. With QuickDepth, you get to predict those issues ahead of time, and that means you can optimize before you even reach synthesis. How cool is that?
 
 What Does QuickDepth Do? 🛠️
@@ -17,6 +19,7 @@ Works with Real Data: This isn’t just a theoretical model – it’s based on 
 Timing Violation Alerts: The best part? It can help flag timing violations early in the process, which is a lifesaver during design iteration.
 
 How It Works 🔍
+
 Data Collection: First off, I gathered important design parameters like Gate Type, Fan-In, Fan-Out, and of course, Logic Depth. These are the building blocks.
 
 Feature Engineering: To make sure the machine learning model could handle these features, I used Label Encoding for Gate Type and scaling to make the data more digestible.
@@ -26,3 +29,16 @@ Training the Model: I then trained the model using Lasso Regression, which did a
 Evaluating the Model: After training, I used Mean Absolute Error (MAE) and R-squared to measure performance – and trust me, it performed admirably.
 
 Practical Use: I tested QuickDepth on fresh data to ensure that it can be applied in real-life scenarios. No fluff, all results.
+
+
+🔧 Tech Stack:
+Here’s the tech magic that powers this project:
+
+Python: The programming language I used to build the project. Who doesn’t love Python? 
+
+
+Scikit-learn: The superhero of machine learning! It helps train the model and evaluate performance.
+
+Pandas & Numpy: These are like my trusty sidekicks for data manipulation and processing. 
+
+Matplotlib: Want to visualize things? I used it to plot graphs and figure out how our model is performing.
