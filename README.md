@@ -1,4 +1,4 @@
-QuickDepth: The Predictive Genius for RTL Logic Depth!
+###QuickDepth: The Predictive Genius for RTL Logic Depth!
 
 Welcome to QuickDepth !
 
