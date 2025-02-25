@@ -1,4 +1,4 @@
-###QuickDepth: The Predictive Genius for RTL Logic Depth!
+# **QuickDepth: The Predictive Genius for RTL Logic Depth!**
 
 Welcome to QuickDepth !
 
@@ -6,7 +6,7 @@ Ever wondered if your combinational logic designs might cause timing issues befo
 
 I built this project from the ground up to save you time, hassle, and headaches in your design process. Using machine learning, QuickDepth predicts logic depth based on key design features – because being proactive is always better than being reactive.
 
-Why QuickDepth? 🤔
+## **Why QuickDepth? 🤔**
 
 Because every second counts when you're designing hardware. If your logic depth prediction is off, you could end up with timing violations that slow down the whole process. With QuickDepth, you get to predict those issues ahead of time, and that means you can optimize before you even reach synthesis. How cool is that?
 
@@ -18,7 +18,7 @@ Uses Lasso Regression: It’s not just any random model – I picked Lasso Regre
 Works with Real Data: This isn’t just a theoretical model – it’s based on actual RTL data! So when you run it, you can trust that it’s got real-world potential.
 Timing Violation Alerts: The best part? It can help flag timing violations early in the process, which is a lifesaver during design iteration.
 
-How It Works 🔍
+**How It Works 🔍**
 
 Data Collection: First off, I gathered important design parameters like Gate Type, Fan-In, Fan-Out, and of course, Logic Depth. These are the building blocks.
 
@@ -31,7 +31,7 @@ Evaluating the Model: After training, I used Mean Absolute Error (MAE) and R-squ
 Practical Use: I tested QuickDepth on fresh data to ensure that it can be applied in real-life scenarios. No fluff, all results.
 
 
-🔧 Tech Stack:
+**Tech Stack:**
 Here’s the tech magic that powers this project:
 
 Python: The programming language I used to build the project. Who doesn’t love Python? 
