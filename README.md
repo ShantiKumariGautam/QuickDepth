@@ -1,38 +1,113 @@
-# QuickDepth: The Predictive Genius for RTL Logic Depth!
 
-Welcome to QuickDepth! 🚀
 
-Ever wondered if your combinational logic designs might cause timing issues before you hit the synthesizer? Say hello to **QuickDepth**, the smart tool that predicts the logic depth of your RTL designs. No more waiting for synthesis results or being caught off guard by timing violations. QuickDepth has got your back!
+# QuickDepth
 
-### Why QuickDepth? 🤔
-Because every second counts when you're designing hardware. If your logic depth prediction is off, you could end up with timing violations that slow down the whole process. With QuickDepth, you get to predict those issues ahead of time, and that means you can optimize before you even reach synthesis. How cool is that?
+**AI-Powered Prediction of Combinational Logic Depth in RTL Designs**
 
-### What Does QuickDepth Do? 🛠️
-- **Predicts Logic Depth**: Powered by machine learning, it crunches data from your design parameters and spits out the predicted combinational logic depth. Pretty sweet, right?
-- **Uses Lasso Regression**: It’s not just any random model – I picked Lasso Regression for its power to handle linear relationships without overfitting. It’s a balanced choice for this kind of task.
-- **Works with Real Data**: This isn’t just a theoretical model – it’s based on actual RTL data! So when you run it, you can trust that it’s got real-world potential.
-- **Timing Violation Alerts**: The best part? It can help flag timing violations early in the process, which is a lifesaver during design iteration.
+QuickDepth is an AI-based tool developed to predict the combinational logic depth of signals in RTL (Register Transfer Level) designs before the full synthesis step. This allows chip designers and hardware engineers to detect potential timing violations early, saving critical development time and reducing the need for expensive refactoring.
 
-### How It Works 🔍
-1. **Data Collection**: First off, I gathered important design parameters like Gate Type, Fan-In, Fan-Out, and of course, Logic Depth. These are the building blocks.
-2. **Feature Engineering**: To make sure the machine learning model could handle these features, I used Label Encoding for Gate Type and scaling to make the data more digestible.
-3. **Training the Model**: I then trained the model using **Lasso Regression**, which did a solid job of predicting logic depth based on those features. Regularization for the win!
-4. **Evaluating the Model**: After training, I used **Mean Absolute Error (MAE)** and **R-squared** to measure performance – and trust me, it performed admirably.
-5. **Practical Use**: I tested QuickDepth on fresh data to ensure that it can be applied in real-life scenarios. No fluff, all results.
+This project was created as part of the **Google Girl Hackathon 2025**, under the Electronic Design Automation (EDA) innovation track.
 
-### Tech Stack 💻
-- **Python**: The programming language I used to build the project.
-- **Scikit-learn**: The superhero of machine learning! It helps train the model and evaluate performance.
-- **Pandas & Numpy**: These are like my trusty sidekicks for data manipulation and processing.
-- **Matplotlib**: Want to visualize things? I used it to plot graphs and figure out how our model is performing.
+---
 
-## Installation
+## What Problem Does It Solve?
 
-Run the following commands to set up QuickDepth:  
+Timing violations discovered after synthesis often cause delays and require major redesigns. There is no widely available tool that can predict logic depth issues early in the RTL design phase. QuickDepth bridges that gap by acting as a predictive engine that highlights timing-critical signals before synthesis even begins.
+
+---
+
+## How It Works
+
+1. **Feature Extraction from RTL**
+   - Fan-In and Fan-Out of signals
+   - Signal dependencies and gate types
+   - Critical path indicators
+
+2. **Modeling**
+   - Features are transformed into structured data
+   - A Lasso Regression model is trained to predict combinational depth
+   - The model is validated using cross-validation and tested on unseen RTL modules
+
+3. **Prediction**
+   - Given new RTL signal features, the model predicts the logic depth
+   - Critical signals with high predicted depth are flagged for potential timing violations
+
+---
+
+## Why Lasso Regression?
+
+After comparing several models, Lasso Regression was chosen due to its balance between accuracy, interpretability, and computational efficiency.
+
+| Model           | Status    | Reason for Rejection                                |
+|----------------|-----------|------------------------------------------------------|
+| Decision Trees  |  Rejected | Overfitting on complex data                         |
+| Random Forest   |  Rejected | Higher memory usage and less interpretability       |
+| XGBoost         |  Rejected | Complex tuning and long training time               |
+| Neural Networks |  Rejected | Required more data and time                         |
+| **Lasso Regression** |  Selected | L1 regularization, simple, efficient, and accurate |
+
+---
+
+## Proof of Correctness
+
+- **Dataset**: Synthetic RTL benchmark datasets were created, including fan-in, fan-out, signal dependencies, gate types, and critical path length.
+- **Training & Validation**: Performed using k-fold cross-validation.
+- **Evaluation Metrics**:
+  - Mean Squared Error (MSE): Low
+  - R² Score: High, showing strong predictive performance
+- **Testing**: Applied to real RTL modules; prediction results closely matched post-synthesis timing reports.
+- **Practical Use**: Identified critical signals and flagged potential violations early in the design cycle.
+
+---
+
+## Complexity Analysis
+
+| Task                     | Time Complexity           | Space Complexity         |
+|--------------------------|---------------------------|---------------------------|
+| Feature Extraction       | O(N)                      | O(N × F)                  |
+| Model Training (Lasso)   | O(N × F²)                 | O(F)                      |
+| Cross-Validation         | O(K × N × F²)             | —                         |
+| Prediction               | O(F)                      | —                         |
+
+> Where:  
+> N = Number of signals  
+> F = Number of features  
+> K = Number of folds
+
+---
+
+## Tech Stack
+
+- Python
+- scikit-learn
+- pandas, NumPy
+- Jupyter Notebook
+- Matplotlib / Seaborn (for analysis)
+
+---
+
+## Folder Structure 
+
+
+## How to Run Locally
 
 ```bash
-git clone https://github.com/yourusername/QuickDepth.git  
-cd QuickDepth  
-pip install -r requirements.txt  
+# Step 1: Clone the repository
+git clone https://github.com/yourusername/QuickDepth.git
+cd QuickDepth
+
+# Step 2: Set up virtual environment
+python -m venv venv
+source venv/bin/activate  # For Windows: venv\Scripts\activate
+
+# Step 3: Install dependencies
+pip install -r requirements.txt
+
+# Step 4: Run the training script
+python train_model.py
+
+# Step 5: Run the prediction script
+python predict_depth.py
+
 
 
