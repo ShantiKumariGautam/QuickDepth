@@ -107,9 +107,9 @@ python train_model.py
 # Step 5: Run the prediction script
 python predict_depth.py
 
----
+```
 
-##References
+## References
 ScienceDirect article on Time Delay Modeling in Digital Circuits
 
 VLSI Physical Design with Timing Analysis (Book)
@@ -117,5 +117,14 @@ VLSI Physical Design with Timing Analysis (Book)
 ISCAS & MCNC Benchmark RTL Circuits (b17, s38584)
 
 Dataset features: Fan-In, Fan-Out, Gate Type, Dependency Count, Critical Path Length
+
+## Author
+Shanti Kumari Gautam
+
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for full details.
+
 
 
