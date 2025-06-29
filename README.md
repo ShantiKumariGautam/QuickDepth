@@ -86,8 +86,6 @@ After comparing several models, Lasso Regression was chosen due to its balance b
 
 ---
 
-## Folder Structure 
-
 
 ## How to Run Locally
 
@@ -109,5 +107,15 @@ python train_model.py
 # Step 5: Run the prediction script
 python predict_depth.py
 
+---
+
+##References
+ScienceDirect article on Time Delay Modeling in Digital Circuits
+
+VLSI Physical Design with Timing Analysis (Book)
+
+ISCAS & MCNC Benchmark RTL Circuits (b17, s38584)
+
+Dataset features: Fan-In, Fan-Out, Gate Type, Dependency Count, Critical Path Length
 
 
